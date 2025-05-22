@@ -7,7 +7,7 @@ import time
 import plotly.io as pio
 from fpdf import fpdf
 
-API_BASE_URL = "http://127.0.0.1:8001"
+API_BASE_URL = "https://m-dashboard-dqs0.onrender.com"
 
 st.set_page_config(page_title="AI-SOLUTIONS SALES DASHBOARD", layout="wide")
 st.markdown("""
@@ -27,7 +27,8 @@ def fetch_data(endpoint, params=None):
         response = requests.get(f"{API_BASE_URL}{endpoint}", params=params)
         response.raise_for_status()
         return response.json()
-    except:
+    except requests.RequestException as e:
+        print("API request failed", e)
         return None
 
 # Metric Renderer
