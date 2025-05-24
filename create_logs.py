@@ -170,7 +170,7 @@ def save_logs_to_db(logs, table_name):
     conn.commit()
     conn.close()
 
-def reset_all():
+if __name__ == "__main__":
     # Step 1: Reset and restructure the database
     reset_and_restructure_database()
 
