@@ -170,7 +170,7 @@ def save_logs_to_db(logs, table_name):
     conn.commit()
     conn.close()
 
-if __name__ == "__main__":
+def reset_all():
     # Step 1: Reset and restructure the database
     reset_and_restructure_database()
 
@@ -204,3 +204,4 @@ if __name__ == "__main__":
     save_logs_to_db(leads, "leads")
 
     print(f"Generated {len(weblogs)} weblogs, {len(sales_metrics)} sales metrics, and {len(leads)} leads, and saved them to the database.")
+    
